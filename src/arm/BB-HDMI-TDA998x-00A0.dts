@@ -81,7 +81,7 @@
 					AM33XX_IOPAD(0x99c, PIN_OUTPUT_PULLDOWN | MUX_MODE2) /* mcasp0_ahclkr.mcasp0_axr2*/
 					AM33XX_IOPAD(0x994, PIN_OUTPUT_PULLUP | MUX_MODE0) /* mcasp0_fsx.mcasp0_fsx */
 					AM33XX_IOPAD(0x990, PIN_OUTPUT_PULLDOWN | MUX_MODE0) /* mcasp0_aclkx.mcasp0_aclkx */
-					AM33XX_IOPAD(0x86c, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* gpmc_a11.GPIO1_27 */
+				/*	AM33XX_IOPAD(0x86c, PIN_OUTPUT_PULLDOWN | MUX_MODE7) */ /* gpmc_a11.GPIO1_27 */
 				>;
 			};
 		};
@@ -93,14 +93,14 @@
 			clk_mcasp0_fixed: clk_mcasp0_fixed {
 				#clock-cells = <0>;
 				compatible = "fixed-clock";
-				clock-frequency = <24576000>;
+				clock-frequency = <12288000>;
 			};
 
 			clk_mcasp0: clk_mcasp0 {
 				#clock-cells = <0>;
 				compatible = "gpio-gate-clock";
 				clocks = <&clk_mcasp0_fixed>;
-				enable-gpios = <&gpio1 27 0>; /* BeagleBone Black Clk enable on GPIO1_27 */
+				enable-gpios = <&gpio3 7 0>; /* BeagleBone Black Clk enable on GPIO1_27 */
 			};
 
 			sound {
